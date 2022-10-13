@@ -19,7 +19,7 @@ import {useState} from "react"
 
 
 
-export default function Home() {
+export default function Home({...navigation}) {
   const [ActiveCategory,SetActiveCategory]=useState('Burger')
   const [Category,SetCategory] = useState([
     {
@@ -45,51 +45,53 @@ export default function Home() {
     }
   ])
   return (
-    <LinearGradient colors={['#f5cfc0', '#fbe6dd']}>
-      <View style={styles.container}>
-        <Header/>
-        <View  style={styles.BodyContainer}>
-          <ScrollView>
-            <Text style={styles.BodyContainer.TextTitle}>What Do You Want For <Text style={{color:'#f75d20'}}>Dinner</Text> </Text>
-            <View style={styles.BodyContainer.Filter} >
-                  <View  style={styles.BodyContainer.Filter.Icons}  >
-                    <Image source={Search} style={styles.BodyContainer.Category.Btn.Icon}/>
-                  </View >
-                  <View  style={styles.BodyContainer.Filter.Input}   >
-                    <TextInput  placeholder="Search your food" />
-                  </View>
-                  <View  style={styles.BodyContainer.Filter.Icons} >
-                    <Image source={Setting} style={styles.BodyContainer.Category.Btn.Icon}/>
-                  </View>
-            </View>
-            <Text style={styles.BodyContainer.TextTitleSecond} >Catégory</Text>
-            <View  style={styles.BodyContainer.Category} >
-                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                        {
-                          Category.map(categ =>{
-                            return(
-                              <Pressable key={categ.name} onPress={()=>{SetActiveCategory(categ.name)}}  style={[styles.BodyContainer.Category.Btn , ActiveCategory === categ.name ? styles.BodyContainer.Category.BtnACtive: styles.BodyContainer.Category.BtnNoActive]} >
-                                <Image source={categ.icon} style={styles.BodyContainer.Category.Btn.Icon}/>
-                                <Text style={[styles.BodyContainer.Category.Btn.text, ActiveCategory === categ.name ? styles.BodyContainer.Category.TxtActive: styles.BodyContainer.Category.TxtNoActive]}>{categ.name}</Text>
-                              </Pressable>
-                            )
-                          })
-                        }
-                    </ScrollView>
-            </View>
-            <Text style={styles.BodyContainer.TextTitleSecond} >Popular</Text>
-            <View style={styles.Cards}>
-              {
-                                     [...Array(30)].map((x, i) =>
-                                     <ProjetCard key={i} />
-                                    )
-              }
-            </View>
-          </ScrollView>
+    <View style={{alignItems: 'center'}}>
+      <LinearGradient colors={['#f5cfc0', '#fbe6dd']}>
+        <View style={styles.container}>
+          <Header/>
+          <View  style={styles.BodyContainer}>
+            <ScrollView>
+              <Text style={styles.BodyContainer.TextTitle}>What Do You Want For <Text style={{color:'#f75d20'}}>Dinner</Text> </Text>
+              <View style={styles.BodyContainer.Filter} >
+                    <View  style={styles.BodyContainer.Filter.Icons}  >
+                      <Image source={Search} style={styles.BodyContainer.Category.Btn.Icon}/>
+                    </View >
+                    <View  style={styles.BodyContainer.Filter.Input}   >
+                      <TextInput  placeholder="Search your food" />
+                    </View>
+                    <View  style={styles.BodyContainer.Filter.Icons} >
+                      <Image source={Setting} style={styles.BodyContainer.Category.Btn.Icon}/>
+                    </View>
+              </View>
+              <Text style={styles.BodyContainer.TextTitleSecond} >Catégory</Text>
+              <View  style={styles.BodyContainer.Category} >
+                      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                          {
+                            Category.map(categ =>{
+                              return(
+                                <Pressable key={categ.name} onPress={()=>{SetActiveCategory(categ.name)}}  style={[styles.BodyContainer.Category.Btn , ActiveCategory === categ.name ? styles.BodyContainer.Category.BtnACtive: styles.BodyContainer.Category.BtnNoActive]} >
+                                  <Image source={categ.icon} style={styles.BodyContainer.Category.Btn.Icon}/>
+                                  <Text style={[styles.BodyContainer.Category.Btn.text, ActiveCategory === categ.name ? styles.BodyContainer.Category.TxtActive: styles.BodyContainer.Category.TxtNoActive]}>{categ.name}</Text>
+                                </Pressable>
+                              )
+                            })
+                          }
+                      </ScrollView>
+              </View>
+              <Text style={styles.BodyContainer.TextTitleSecond} >Popular</Text>
+              <View style={styles.Cards}>
+                {
+                                      [...Array(30)].map((x, i) =>
+                                      <ProjetCard key={i} />
+                                      )
+                }
+              </View>
+            </ScrollView>
+          </View>
+          <Footer navigation={navigation}  />
         </View>
-        <Footer/>
-      </View>
-    </LinearGradient>
+      </LinearGradient>
+    </View>
   );
 }
 

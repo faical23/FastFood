@@ -9,7 +9,7 @@ import {useState} from "react"
 
 
 
-export default function Footer() {
+export default function Footer(props:any) {
   const [ActiveIcon,SetActiveIcon] = useState('Home')
   const Icons = [
   {
@@ -42,7 +42,11 @@ export default function Footer() {
       Icons.map(item=>{
         return(
           <>
-          <Pressable  key={item.name} onPress={()=>{item.name !== 'addition' && SetActiveIcon(item.name)}}   
+          <Pressable  
+            onPress={()=>{
+              console.log(props.navigation.navigation.navigate('Connexion'))
+            }}
+            key={item.name}   
             style={[ 
               styles.FooterContainer.Item,
               item.name === ActiveIcon ? styles.FooterContainer.ActiveIcon : "",

@@ -4,16 +4,10 @@ import BurgerBack from '../assets/img/BurgerBack.jpg'
 import { LinearGradient } from 'expo-linear-gradient';
 import {useState} from 'react'
 import { ImageSlider } from "react-native-image-slider-banner";
-import Slider from "react-native-hook-image-slider"
 
 
 
-export default function Login() {
-  const Images= [
-    {img:"https://source.unsplash.com/1024x768/?nature"},
-    {img:"https://source.unsplash.com/1024x768/?water"},
-    {img:"https://source.unsplash.com/1024x768/?girl"},
-  ] 
+export default function Login(props:any) {
   return (
     <LinearGradient colors={['#f5cfc0', '#fbe6dd']}>
       <View  style={styles.container}>
@@ -29,13 +23,12 @@ export default function Login() {
             headerStyle={{width: 300,overflow: 'hidden',paddingHorizontal:20}}
             caroselImageStyle={{resizeMode: 'cover',height:400,borderRadius:30,width: 300,overflow: 'hidden' }}
             />
-            {/* <Image source={BurgerBack} style={styles.container.ImgZone.img}/> */}
           </View>
           <View  style={styles.container.TextZone}> 
             <Text style={styles.container.TextZone.Text1}>30K+ Food items</Text> 
             <Text style={styles.container.TextZone.Text2}>Enjoy With</Text> 
             <Text style={styles.container.TextZone.Text3}>Drinking</Text> 
-            <Pressable style={styles.container.TextZone.Btn} >
+            <Pressable onPress={()=>{props.navigation.navigate('Connexion')}} style={styles.container.TextZone.Btn} >
               <Text style={styles.container.TextZone.Btn.txt}>Get started</Text>
             </Pressable>
           </View>
@@ -47,7 +40,7 @@ export default function Login() {
 const styles = StyleSheet.create<any>({
   container: {
     height:"100%",
-    paddingHorizontal:70,
+    paddingHorizontal:38,
     paddingVertical:70,
     ImgZone:{
       overflow:"hidden",
