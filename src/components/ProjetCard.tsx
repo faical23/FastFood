@@ -1,21 +1,27 @@
-import {Pressable,Button, StyleSheet, Text, View ,Image,TextInput,ScrollView } from 'react-native';
-import burger from '../assets/img/burger.png'
-import donut from '../assets/img/donut.png'
-import pizza from '../assets/img/pizza.png'
-import salad from '../assets/img/salad.png'
-import icecream from '../assets/img/ice-cream.png'
-import soda from '../assets/img/soda.png'
+import {Pressable, StyleSheet, Text, View ,Image } from 'react-native';
 import CardImg from '../assets/img/CardImg.jpg'
 import Star from '../assets/img/star.png'
+import RedHeart from '../assets/img/heartRed.png'
+import WhiteHeart from '../assets/img/heatWhite.png'
 
 import {useState} from "react"
 
 
 
-export default function Home() {
+export default function ProfileCard(props:any) {
+  const [IsLiked,SetIsLiked] = useState(false)
   return (
         <View style={styles.Cards.Card}>
-                            <Image source={CardImg} style={styles.Cards.Card.ImgBack}/>
+                            <Pressable onPress={()=>{props.navigation.navigation.navigate('SnackProfile')}}>
+                                <Image source={CardImg} style={styles.Cards.Card.ImgBack}  />
+                            </Pressable>
+                            <Pressable style={styles.Cards.Card.HeartImg} onPress={()=>{SetIsLiked(!IsLiked)}}>
+                              {IsLiked ? 
+                                <Image source={RedHeart} style={{width: 30,height: 30}} />
+                                :
+                                <Image source={WhiteHeart}  style={{width: 30,height: 30}} />
+                              }
+                            </Pressable>
                             <View style={styles.Cards.Card.Info}>
                                 <View style={styles.Cards.Card.Info.Left}>
                                   <Text  style={styles.Cards.Card.Info.Left.name}>BAHSIS SNACK</Text>
@@ -52,6 +58,11 @@ const styles = StyleSheet.create<any>({
         height:160,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
+      },
+      HeartImg:{
+        position: "absolute",
+        right: 10,
+        top:5
       },
       Info:{
         flexDirection: "row",

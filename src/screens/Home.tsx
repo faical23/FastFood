@@ -67,7 +67,7 @@ export default function Home({...navigation}) {
               <View  style={styles.BodyContainer.Category} >
                       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                           {
-                            Category.map(categ =>{
+                            Category.map((categ,i) =>{
                               return(
                                 <Pressable key={categ.name} onPress={()=>{SetActiveCategory(categ.name)}}  style={[styles.BodyContainer.Category.Btn , ActiveCategory === categ.name ? styles.BodyContainer.Category.BtnACtive: styles.BodyContainer.Category.BtnNoActive]} >
                                   <Image source={categ.icon} style={styles.BodyContainer.Category.Btn.Icon}/>
@@ -81,9 +81,9 @@ export default function Home({...navigation}) {
               <Text style={styles.BodyContainer.TextTitleSecond} >Popular</Text>
               <View style={styles.Cards}>
                 {
-                                      [...Array(30)].map((x, i) =>
-                                      <ProjetCard key={i} />
-                                      )
+                  [...Array(30)].map((x, i) =>
+                    <ProjetCard key={i} navigation={navigation} />
+                  )
                 }
               </View>
             </ScrollView>

@@ -39,7 +39,7 @@ export default function Footer(props:any) {
   return (
   <View  style={styles.FooterContainer} >
     {
-      Icons.map(item=>{
+      Icons.map((item,i)=>{
         return(
           <>
           <Pressable  
