@@ -17,7 +17,7 @@ export default function Footer(props:any) {
     icon:Home,
   },
   {
-    name:'Shopping',
+    name:'Basket',
     icon:Shopping,
   },
   {
@@ -29,7 +29,7 @@ export default function Footer(props:any) {
     icon:bookmark,
   },
   {
-    name:'Profile',
+    name:'Connexion',
     icon:user,
   }
   ]
@@ -44,7 +44,7 @@ export default function Footer(props:any) {
           <>
           <Pressable  
             onPress={()=>{
-              console.log(props.navigation.navigation.navigate('Connexion'))
+              console.log(props.navigation.navigation.navigate(item.name))
             }}
             key={item.name}   
             style={[ 
