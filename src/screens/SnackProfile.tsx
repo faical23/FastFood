@@ -9,6 +9,8 @@ import Logo from '../assets/img/LogoProfile.jpg'
 import Scooter from '../assets/img/scooter.png'
 import Time from '../assets/img/clock.png'
 import Reviews from '../assets/img/star.png'
+import Map from '../assets/img/map.png'
+
 import { LinearGradient } from 'expo-linear-gradient';
 import Card from '../components/ProfileCard'
 
@@ -76,6 +78,10 @@ export default function SnackProfile(props:any) {
                                     <Text style={styles.Info.AllElement.Element.Text}>4.8</Text>
                                 </View>
                             </View>
+                            <View style={[styles.Info.AllElement.Element,styles.Info.AllElement.MapElement]} >
+                                    <Image source={Map} style={styles.Info.AllElement.Element.Img}  />
+                                    <Text style={styles.Info.AllElement.Element.Text}>Localisation</Text>
+                            </View>
                         </View>
                         <ScrollView style={styles.ZoneScroll}>
                             <Text style={styles.MenuTitle} >Menu</Text>
@@ -108,7 +114,7 @@ export default function SnackProfile(props:any) {
 const styles = StyleSheet.create<any>({
     Hero:{
         flexDirection: "row",
-        height:250,
+        height:220,
         justifyContent:"space-between",
         paddingVertical:60,
         paddingHorizontal:30,
@@ -126,11 +132,8 @@ const styles = StyleSheet.create<any>({
     },
     ZoneInformation:{
         position: "relative",
-        bottom:80,
+        bottom:60,
     },
-    // ZoneScroll:{
-    //     marginBottom:800,
-    // },
     Info:{
         padding:20,
         marginHorizontal:20,
@@ -144,7 +147,7 @@ const styles = StyleSheet.create<any>({
             height:100,
             position:"absolute",
             right:'38%',
-            bottom:130,
+            bottom:170,
             shadowOffset: {width: 0, height: 0},  
             shadowColor: 'red',  
             shadowOpacity: 0.8,  
@@ -171,6 +174,7 @@ const styles = StyleSheet.create<any>({
                 shadowColor: 'red',  
                 shadowOpacity: 0.14,  
                 shadowRadius: 10,  
+                marginBottom:7,
                 Img:{
                     width:25,
                     height:25,
@@ -181,6 +185,9 @@ const styles = StyleSheet.create<any>({
                     fontWeight:'700',
                     paddingHorizontal:5,
                 }
+            },
+            MapElement:{
+                width:130
             }
         }
 

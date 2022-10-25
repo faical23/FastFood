@@ -28,7 +28,7 @@ export default function Login(props:any) {
             <Text style={styles.container.TextZone.Text1}>30K+ Food items</Text> 
             <Text style={styles.container.TextZone.Text2}>Enjoy With</Text> 
             <Text style={styles.container.TextZone.Text3}>Drinking</Text> 
-            <Pressable onPress={()=>{props.navigation.navigate('Connexion')}} style={styles.container.TextZone.Btn} >
+            <Pressable onPress={()=>{props.navigation.navigate('Home')}} style={styles.container.TextZone.Btn} >
               <Text style={styles.container.TextZone.Btn.txt}>Get started</Text>
             </Pressable>
           </View>

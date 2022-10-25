@@ -6,6 +6,7 @@ import Connexion from '../src/screens/Connexion'
 import SnackProfile from '../src/screens/SnackProfile'
 import DetailCardProfile from '../src/screens/DetailsCardProfil'
 import Basket from '../src/screens/Basket'
+import bookmark from '../src/screens/bookmark'
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,8 @@ export default function App() {
       <Stack.Screen name="SnackProfile" component={SnackProfile} />
       <Stack.Screen name="DétailCardProfil" component={DetailCardProfile} />
       <Stack.Screen name="Basket" component={Basket} />
+      <Stack.Screen name="bookmark" component={bookmark} />
+
 
     </Stack.Navigator>
   </NavigationContainer>

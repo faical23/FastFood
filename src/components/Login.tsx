@@ -5,6 +5,8 @@ import Facebook from '../assets/img/facebook.png'
 import Apple from '../assets/img/apple.png'
 import viewEyes from '../assets/img/view.png'
 import hiddenEyes from '../assets/img/hidden.png'
+import Arrow from '../assets/img/arrow.png'
+
 
 export default function Insciption(props:any) {
 
@@ -13,6 +15,11 @@ export default function Insciption(props:any) {
   return (
     <LinearGradient colors={['#f5cfc0', '#fbe6dd']}>
       <View style={styles.container}>
+        <View style={styles.ImgZone}>
+            <Pressable  onPress={()=>{console.log(props.navigation.navigation.navigate('Home'))}}>
+                <Image source={Arrow} style={styles.ImgZone.Img}  />
+            </Pressable>
+        </View>
         <View style={styles.container.WelcomeZone}>
             <Text style={styles.container.WelcomeZone.Text1}>Hello again!</Text>
             <Text style={styles.container.WelcomeZone.Text2}>Welcome back you've </Text>
@@ -65,7 +72,7 @@ const styles = StyleSheet.create<any>({
   container: {
     height:"100%",
     paddingHorizontal:40,
-    paddingTop:120,
+    paddingTop:80,
     WelcomeZone:{
       paddingBottom:20,
       Text1:{
@@ -176,4 +183,16 @@ const styles = StyleSheet.create<any>({
       }
     }
   },
+  ImgZone:{
+    padding:10,
+    height:50,
+    borderRadius:10,
+    backgroundColor:'white',
+    width:50,
+    marginBottom:20,
+    Img:{
+        width:30,
+        height:30
+    }
+},
 });

@@ -1,16 +1,7 @@
 import {TextInput,ScrollView,ImageBackground,Pressable, StyleSheet, Text, View ,Image } from 'react-native';
 import {useState,useEffect} from "react"
-
-import RedHeart from '../assets/img/heartRed.png'
-import HeartBorder from '../assets/img/heartBorder.png'
 import Arrow from '../assets/img/arrow.png'
-import backgroundProfile from '../assets/img/profileBack1.jpg'
-import Logo from '../assets/img/LogoProfile.jpg'
-import Scooter from '../assets/img/scooter.png'
-import Time from '../assets/img/clock.png'
-import Reviews from '../assets/img/star.png'
 import { LinearGradient } from 'expo-linear-gradient';
-import Card from '../components/ProfileCard'
 import BUrger from '../assets/img/BurgerBack.jpg'
 import Livraison from '../assets/img/direct_supplier.png'
 
@@ -86,6 +77,7 @@ export default function Basket(props:any) {
                                 <Image source={Livraison} style={styles.Hero.BigImg}  />
                             </View>
                         </View>
+                        <Text style={styles.BigTitle}>Your orders</Text>
                         <ScrollView style={{marginVertical:20}}>
                             <>
                                 {
@@ -314,6 +306,13 @@ const styles = StyleSheet.create<any>({
             fontSize:18,
             fontWeight:'800',
         }
+    },
+    BigTitle:{
+        color:'black',
+        fontSize:30,
+        fontWeight:'800',
+        marginHorizontal:20,
+        marginTop:20,
     }
 
 
